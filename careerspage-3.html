@@ -67,15 +67,19 @@
     </noscript>
   
 
+
 <script>
-// Improved Ratio/Responsive Fix
 function applyZoom() {
     var baseWidth = 1920;
-    var windowWidth = window.innerWidth;
-    var scale = windowWidth / baseWidth;
+    var innerWidth = window.innerWidth;
+    var screenWidth = window.screen.width;
     
-    // Use the CSS zoom property which behaves exactly like the browser's zoom feature
-    if (scale < 1) {
+    // On mobile devices, the meta viewport tag (width=1920) handles scaling automatically.
+    // On desktops (where viewport tag is ignored and innerWidth < 1920), we use CSS zoom.
+    // We only apply this if innerWidth is less than 1920 but greater than typical mobile screen widths
+    // to avoid double-zooming issues on mobile.
+    if (innerWidth < baseWidth && screenWidth > 800) {
+        var scale = innerWidth / baseWidth;
         document.body.style.zoom = scale;
     } else {
         document.body.style.zoom = 1;
@@ -86,6 +90,7 @@ window.addEventListener('DOMContentLoaded', applyZoom);
 applyZoom();
 </script>
 </body>
+
 
 
 
