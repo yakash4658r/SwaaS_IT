@@ -2,6 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+<script>
+(function(){
+  var ua=navigator.userAgent;
+  var isMobile=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(ua)||window.innerWidth<=768;
+  if(!isMobile){window.location.replace('/SwaaS_IT/contact-us.html');}
+})();
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Contact Us – SwaaS IT Solutions</title>
   <meta name="description" content="Start a conversation with SwaaS. Get a scoped engagement in 48 hours." />
@@ -475,4 +482,5 @@
   </script>
 </body>
 </html>
+
 
