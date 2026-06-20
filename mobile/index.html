@@ -1,0 +1,776 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>SwaaS IT Solutions – OUR AI Practice</title>
+  <meta name="description" content="SwaaS IT Solutions – Four Services, Two Foundations, Zero Compromises. AI-Native Engineering partner for enterprises." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Gabarito:wght@400;500;600&family=Manrope:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* ---- HERO SECTION ---- */
+    .hero {
+      background: radial-gradient(ellipse at 60% 20%, #7A2F0E 0%, #3B1205 40%, #0a0301 100%);
+      padding: 100px 20px 40px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 120% 60% at 80% 10%, rgba(255,104,39,0.25) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #FFBF99;
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 28px;
+    }
+    .hero-badge .dot { width: 8px; height: 8px; background: #FB650C; border-radius: 50%; }
+    .hero-badge span { color: #D9D9D9; font-size: 13px; }
+    .hero-badge span b { color: #FF853C; font-weight: 400; }
+    .hero-title {
+      text-align: center;
+      color: white;
+      font-size: 32px;
+      font-family: 'Geist', sans-serif;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .hero-ai-label {
+      position: relative;
+      background: #4B1A0B;
+      padding: 6px 30px;
+      margin: 0 auto 10px;
+      display: inline-block;
+    }
+    .hero-ai-label::before { content: ''; position: absolute; left: 0; top: -2px; width: 3px; height: calc(100% + 12px); background: white; }
+    .hero-ai-label::after { content: ''; position: absolute; right: 0; bottom: -2px; width: 3px; height: calc(100% + 12px); background: white; }
+    .hero-ai-label span { color: #EC5D08; font-size: 26px; font-family: 'Geist', sans-serif; font-weight: 200; text-transform: uppercase; letter-spacing: 1px; }
+    .hero-sub {
+      color: white;
+      font-size: 26px;
+      font-weight: 400;
+      text-align: center;
+      line-height: 1.3;
+      margin-top: 14px;
+      margin-bottom: 24px;
+      font-family: 'Geist', sans-serif;
+    }
+    .hero-zero {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .hero-zero-label {
+      flex-shrink: 0;
+      background: linear-gradient(90deg, #FF6827 0%, rgba(255,104,39,0) 100%);
+      padding: 14px 24px 14px 20px;
+      color: white;
+      font-size: 13px;
+      font-style: italic;
+      font-weight: 300;
+      font-family: 'Inter', sans-serif;
+    }
+    .hero-zero-text {
+      color: white;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: 'Geist', sans-serif;
+      flex: 1;
+    }
+    .hero-dots { display: flex; gap: 8px; margin-bottom: 30px; }
+    .hero-dots .dot-line { width: 80px; height: 10px; background: white; border-radius: 59px; }
+    .hero-dots .dot-circle { width: 10px; height: 10px; background: rgba(255,105,41,0.39); border-radius: 59px; }
+
+    /* ---- FOUNDATIONS SECTION ---- */
+    .foundations {
+      padding: 0 20px 30px;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(90deg, #FF7032 0%, #33170A 56%);
+      padding: 8px 14px;
+      margin-bottom: 20px;
+    }
+    .section-label span { color: white; font-size: 12px; font-family: 'Geist', sans-serif; }
+    .foundations-grid {
+      display: flex;
+      gap: 0;
+    }
+    .foundation-item {
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+    }
+    .foundation-item .line {
+      width: 3px;
+      height: 60px;
+      background: #FF853C;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .foundation-item .text h4 { color: white; font-size: 14px; font-family: 'Gabarito', sans-serif; margin: 0 0 4px; }
+    .foundation-item .text p { color: white; font-size: 11px; font-weight: 300; font-family: 'Geist', sans-serif; margin: 0; line-height: 1.4; }
+
+    /* ---- AI SERVICES ---- */
+    .ai-services {
+      padding: 0 20px 30px;
+    }
+    .services-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .services-row { display: flex; gap: 2px; }
+    .service-item {
+      flex: 1;
+      background: rgba(255,255,255,0.08);
+      padding: 12px 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-height: 70px;
+    }
+    .service-item .line { width: 3px; height: 50px; background: #FF853C; flex-shrink: 0; }
+    .service-item .text h4 { color: white; font-size: 13px; font-family: 'Gabarito', sans-serif; margin: 0 0 4px; }
+    .service-item .text p { color: white; font-size: 10px; font-weight: 300; font-family: 'Geist', sans-serif; margin: 0; line-height: 1.4; }
+
+    /* ---- ARJUN BANNER ---- */
+    .arjun-banner {
+      background: linear-gradient(90deg, #FF5700 0%, #EF5200 100%);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid rgba(255,255,255,0.3);
+    }
+    .arjun-banner .icon { width: 20px; height: 20px; fill: white; }
+    .arjun-banner .text p { color: rgba(255,255,255,0.85); font-size: 11px; font-family: 'Geist', sans-serif; margin: 0; }
+    .arjun-banner .text strong { color: white; font-size: 11px; font-family: 'Geist', sans-serif; font-weight: 500; }
+
+    /* ---- CEO SECTION ---- */
+    .ceo-section {
+      background: linear-gradient(351deg, #7A2F0E 0%, rgba(0,0,0,0) 100%), #000;
+      padding: 40px 20px;
+    }
+    .ceo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: black;
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+    .ceo-badge span { color: white; font-size: 12px; font-family: 'Geist', sans-serif; }
+    .ceo-badge span b { color: #FF853C; font-weight: 400; }
+    .ceo-desc {
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      font-family: 'Geist', sans-serif;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .divider { width: 220px; height: 1px; background: rgba(255,255,255,0.44); margin: 0 auto 20px; }
+    .ceo-video {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      margin: 0 auto 20px;
+      max-width: 340px;
+      background: #1a1a1a;
+    }
+    .ceo-video img { width: 100%; height: 180px; object-fit: cover; display: block; filter: brightness(0.7); }
+    .ceo-video .play-btn {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px; height: 44px;
+      background: rgba(0,0,0,0.7);
+      border-radius: 12px;
+      border: 1px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ceo-video .play-btn svg { width: 14px; fill: white; margin-left: 2px; }
+    .ceo-video .caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 10px 16px;
+      background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .ceo-video .caption .quote { color: white; font-size: 10px; font-family: 'Gabarito', sans-serif; max-width: 200px; }
+    .ceo-video .caption .name p { color: white; font-size: 10px; font-family: 'Inter', sans-serif; margin: 0; }
+    .ceo-video .caption .name span { color: rgba(255,255,255,0.7); font-size: 8px; font-family: 'Inter', sans-serif; }
+
+    /* ---- STATS ---- */
+    .stats-section {
+      background: linear-gradient(351deg, #7A2F0E 0%, rgba(0,0,0,0) 100%), #000;
+      padding: 0 20px 40px;
+    }
+    .stats-grid {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .stat-card {
+      flex: 1;
+      background: #181818;
+      border-radius: 8px;
+      border-left: 2px solid #FF7032;
+      padding: 8px 10px;
+    }
+    .stat-card .num { color: white; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 700; }
+    .stat-card .label { color: rgba(255,255,255,0.64); font-size: 8px; font-family: 'Geist', sans-serif; line-height: 1.3; }
+    .clients-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .client-avatars { display: flex; }
+    .client-avatars img {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      border: 1px solid white;
+      margin-left: -5px;
+    }
+    .client-avatars img:first-child { margin-left: 0; }
+    .clients-count .num { color: white; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 700; }
+    .clients-count .label { color: rgba(255,255,255,0.64); font-size: 8px; font-family: 'Manrope', sans-serif; font-weight: 500; }
+
+    /* ---- STRATEGIC VISION ---- */
+    .strategic {
+      background: white;
+      padding: 50px 30px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .strategic::before {
+      content: '';
+      position: absolute;
+      left: -20px; top: 180px;
+      width: 440px; height: 440px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,133,60,0.15);
+      pointer-events: none;
+    }
+    .orange-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FF853C;
+      border-radius: 50px;
+      padding: 8px 16px;
+      margin-bottom: 14px;
+    }
+    .orange-badge span { color: white; font-size: 12px; font-family: 'Geist', sans-serif; }
+    .strategic-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: #171717;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .strategic-title span { color: #FF853C; }
+    .strategic-desc {
+      background: #F2F2F2;
+      border-radius: 10px;
+      padding: 14px 16px;
+      color: #141414;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: 'Geist', sans-serif;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .vision-card {
+      position: relative;
+      background: rgba(255,112,50,0.05);
+      border-radius: 18px;
+      padding: 28px 20px;
+      margin-bottom: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .vision-card.left { border-right: 3px solid #FF7032; }
+    .vision-card.right { border-left: 3px solid #FF7032; }
+    .vision-icon {
+      width: 58px; height: 58px;
+      background: white;
+      border-radius: 50%;
+      border: 1.5px solid #FF7032;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4px;
+    }
+    .vision-icon svg { width: 28px; height: 28px; }
+    .vision-card h3 {
+      color: black;
+      font-size: 13px;
+      font-family: 'Gabarito', sans-serif;
+      font-weight: 500;
+      text-align: center;
+      margin: 0;
+    }
+    .vision-card p {
+      color: black;
+      font-size: 10px;
+      font-family: 'Geist', sans-serif;
+      font-weight: 300;
+      text-align: center;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ---- LANDSCAPE (DARK) ---- */
+    .landscape {
+      background: #080808;
+      padding: 50px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .landscape::before {
+      content: '';
+      position: absolute;
+      right: -50px; top: -80px;
+      width: 340px; height: 340px;
+      background: rgba(255,133,60,0.2);
+      border-radius: 50%;
+      filter: blur(100px);
+    }
+    .landscape::after {
+      content: '';
+      position: absolute;
+      left: -100px; bottom: 200px;
+      width: 250px; height: 250px;
+      background: rgba(255,133,60,0.25);
+      border-radius: 50%;
+      filter: blur(100px);
+    }
+    .landscape-title {
+      color: white;
+      font-size: 22px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+    }
+    .landscape-title span { color: #FF853C; }
+    .landscape-desc-box {
+      background: #181818;
+      border: 1px solid #3E3D42;
+      border-radius: 10px;
+      padding: 14px;
+      color: white;
+      font-size: 12px;
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      text-align: center;
+      margin: 20px 0 30px;
+    }
+    .wheel-visual {
+      width: 200px; height: 200px;
+      position: relative;
+      margin: 0 auto 30px;
+    }
+    .wheel-visual .wheel-outer {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,133,60,0.2);
+      border-radius: 0;
+    }
+    .wheel-visual .wheel-mid {
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(255,133,60,0.25);
+    }
+    .wheel-visual .wheel-inner {
+      position: absolute;
+      inset: 40px;
+      border: 1px solid rgba(255,133,60,0.3);
+    }
+    .wheel-visual .wheel-center {
+      position: absolute;
+      inset: 67px;
+      background: linear-gradient(135deg, #FF853C 0%, #FF4D00 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 40px rgba(244,81,30,0.5);
+    }
+    .wheel-visual .wheel-center svg { width: 30px; fill: white; }
+    .service-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .service-row-2 { display: flex; gap: 8px; }
+    .service-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+      border-radius: 16px;
+      padding: 14px;
+      border-top: 1px solid;
+    }
+    .service-card.yellow { border-color: #FFCB3C; }
+    .service-card.green { border-color: #D2FF3C; }
+    .service-card.cyan { border-color: #3CECFF; }
+    .service-card.purple { border-color: #F53CFF; }
+    .service-card.blue { border-color: #3C9AFF; }
+    .service-card h4 { color: white; font-size: 13px; font-family: 'Gabarito', sans-serif; font-weight: 500; margin: 0 0 6px; }
+    .service-card p { color: white; font-size: 10px; font-weight: 300; font-family: 'Geist', sans-serif; margin: 0; line-height: 1.4; }
+    .service-row-2 .service-card { flex: 1; }
+    .service-card.full { width: 100%; }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: #0a0a0a;
+      padding: 40px 24px 30px;
+      border-top: 1px solid #1f1f1f;
+    }
+    .footer-logo {
+      font-size: 22px;
+      color: white;
+      font-family: 'Gabarito', sans-serif;
+      margin-bottom: 16px;
+    }
+    .footer-logo span { color: #FF853C; }
+    .footer-desc {
+      color: rgba(255,255,255,0.5);
+      font-size: 12px;
+      font-family: 'Geist', sans-serif;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      max-width: 300px;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin-bottom: 30px;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 13px;
+      font-family: 'Geist', sans-serif;
+    }
+    .footer-links a:hover { color: #FF853C; }
+    .footer-bottom {
+      border-top: 1px solid #1f1f1f;
+      padding-top: 20px;
+      color: rgba(255,255,255,0.3);
+      font-size: 11px;
+      font-family: 'Geist', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"># <span>SwaaS</span></a>
+      <div class="nav-right">
+        <a href="contactus.html" class="nav-cta">Contact us</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="nav-logo"># <span>SwaaS</span></a>
+        <button class="close-btn" id="closeMenu" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="service.html">Services</a>
+        <a href="insights.html">Insights</a>
+        <a href="careers.html">Careers</a>
+        <a href="aboutus.html">About Us</a>
+      </nav>
+      <a href="contactus.html" class="mobile-cta">Contact us</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">
+      <div class="dot"></div>
+      <span>Welcome to <b>SwaaS</b></span>
+    </div>
+    <div class="hero-title">OUR</div>
+    <div class="hero-ai-label"><span>AI PRACTICE</span></div>
+    <div class="hero-sub">FOUR SERVICES!<br>TWO FOUNDATIONS!</div>
+    <div class="hero-zero">
+      <div class="hero-zero-label">ZERO COMPROMISES!</div>
+      <div class="hero-zero-text">Value-driven AI, built on strong data foundations and governed for accountability at every stage.</div>
+    </div>
+    <div class="hero-dots">
+      <div class="dot-line"></div>
+      <div class="dot-circle"></div>
+    </div>
+
+    <!-- Foundations -->
+    <div style="width:100%">
+      <div class="section-label"><span>Our AI Foundations</span></div>
+      <div class="foundations-grid">
+        <div class="foundation-item">
+          <div class="line"></div>
+          <div class="text">
+            <h4>Data Readiness:</h4>
+            <p>Transform legacy data using ELT, ETL, and modern architectures</p>
+          </div>
+        </div>
+        <div class="foundation-item">
+          <div class="line"></div>
+          <div class="text">
+            <h4>Responsible AI &amp; Governance:</h4>
+            <p>Responsible AI ensuring privacy, guardrails, compliance, and audit trails</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI Services -->
+    <div style="width:100%;margin-top:24px">
+      <div class="section-label"><span>Our AI Services</span></div>
+      <div class="services-grid">
+        <div class="services-row">
+          <div class="service-item">
+            <div class="line"></div>
+            <div class="text">
+              <h4>Conversational AI</h4>
+              <p>Chatbots and AI agents that resolve not deflect</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="line"></div>
+            <div class="text">
+              <h4>RAG</h4>
+              <p>Search enterprise data. Get grounded answers.</p>
+            </div>
+          </div>
+        </div>
+        <div class="services-row">
+          <div class="service-item">
+            <div class="line"></div>
+            <div class="text">
+              <h4>Generative AI Application</h4>
+              <p>Purpose built applications for your real everyday work</p>
+            </div>
+          </div>
+          <div class="service-item">
+            <div class="line"></div>
+            <div class="text">
+              <h4>Legacy Modernization</h4>
+              <p>Turn legacy systems into AI-ready, cloud-native platforms.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARJUN BANNER -->
+  <div class="arjun-banner">
+    <svg class="icon" viewBox="0 0 24 24" fill="white"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    <div class="text">
+      <p>Every engagement is governed by our</p>
+      <strong>AI-Native FTR Pipeline (Arjun)</strong>
+    </div>
+  </div>
+
+  <!-- CEO SECTION -->
+  <section class="ceo-section">
+    <div class="ceo-badge">
+      <span>Let's meet <b>SwaaS!</b> ↗</span>
+    </div>
+    <p class="ceo-desc">From the first line of code to a market-ready product, we balance technology, people, process, time, and cost so every build lands right the first time.</p>
+    <div class="divider"></div>
+    <div class="ceo-video">
+      <img src="../_assets/v11/9370039c7ab316a99d37fea2b524230836c534f2.jpg" alt="Anand MS CEO SwaaS" onerror="this.style.background='#2a2a2a'; this.removeAttribute('src')" />
+      <div class="play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="caption">
+        <div class="quote">"Building great IT Products is hard. Finding a tech partner who gets it is even harder..."</div>
+        <div class="name">
+          <p>Anand MS</p>
+          <span>CEO at SwaaS IT Solutions</span>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="num">125+</div>
+        <div class="label">Projects Delivered</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">200+</div>
+        <div class="label">Minds Behind the Work</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">17+</div>
+        <div class="label">Years of Experience</div>
+      </div>
+    </div>
+    <div class="clients-row">
+      <div class="client-avatars">
+        <img src="../_assets/v11/226049655f3871f3dac264b316138eae1882ff2f5db1.png" alt="Client" onerror="this.style.background='#444';this.removeAttribute('src')" />
+        <img src="../_assets/v11/226049655f3871f3dac264b316138eae1882ff2fbca5.png" alt="Client" onerror="this.style.background='#444';this.removeAttribute('src')" />
+        <img src="../_assets/v11/226049655f3871f3dac264b316138eae1882ff2fc498.png" alt="Client" onerror="this.style.background='#444';this.removeAttribute('src')" />
+        <img src="../_assets/v11/40926440f18bbe8bf1691ac4ee27259250770897.png" alt="Client" onerror="this.style.background='#444';this.removeAttribute('src')" />
+      </div>
+      <div class="clients-count">
+        <div class="num">90+</div>
+        <div class="label">Clients Across Continents</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGIC VISION -->
+  <section class="strategic">
+    <div class="orange-badge"><span>Strategic Vision ↗</span></div>
+    <h2 class="strategic-title">Engineering the Software<br>Behind <span>Modern Businesses</span></h2>
+    <div class="strategic-desc">SwaaS builds software products and automates business operations using AI-Native Engineering, with data integrity and delivery discipline at every stage.</div>
+
+    <div class="vision-card left">
+      <div class="vision-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FF7032" stroke-width="1.5"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+      </div>
+      <h3>The client's roadmap is the team's north star</h3>
+      <p>SwaaS team don't work from a backlog. They work from a product roadmap. That difference changes every decision, from what gets prioritised to what gets pushed back.</p>
+    </div>
+
+    <div class="vision-card right">
+      <div class="vision-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FF7032" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+      </div>
+      <h3>AI doesn't replace judgement, it enforces it</h3>
+      <p>SwaaS uses AI to lock requirements, validate specs, and catch drift. But every critical gate has a human decision. The system accelerates the right calls, it doesn't automate away accountability.</p>
+    </div>
+
+    <div class="vision-card left">
+      <div class="vision-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FF7032" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <h3>Offshore without the distance</h3>
+      <p>SwaaS runs on timezone overlap, shared sprint rhythms, and direct client-to-engineer communication. Clients don't manage a vendor. They work with a team.</p>
+    </div>
+
+    <div class="vision-card right">
+      <div class="vision-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FF7032" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+      </div>
+      <h3>Delivery discipline is not a process, it is a culture</h3>
+      <p>Checklists don't ship products. Teams that own outcomes do. Every person at SwaaS, from the engineer to the delivery lead, is accountable for the result, not just their part of it.</p>
+    </div>
+  </section>
+
+  <!-- LANDSCAPE -->
+  <section class="landscape">
+    <div style="position:relative;z-index:1">
+      <div class="orange-badge"><span>What we do ↗</span></div>
+      <h2 class="landscape-title">The SwaaS <span>Landscape</span></h2>
+      <div class="landscape-desc-box">From product builds to process automation, SwaaS covers five practices with delivery models.</div>
+
+      <div class="wheel-visual">
+        <div class="wheel-outer"></div>
+        <div class="wheel-mid"></div>
+        <div class="wheel-inner"></div>
+        <div class="wheel-center">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+      </div>
+
+      <div class="service-cards">
+        <div class="service-row-2">
+          <div class="service-card yellow">
+            <h4>Data Analytics</h4>
+            <p>End-to-end data pipelines, unified platforms, and AI-powered insights that drive decisions, not just dashboards.</p>
+          </div>
+          <div class="service-card green">
+            <h4>Infra as a Service</h4>
+            <p>Cloud infrastructure, CI/CD pipelines, and DevOps practices built for scale, security, and zero-downtime delivery.</p>
+          </div>
+        </div>
+        <div class="service-row-2">
+          <div class="service-card cyan">
+            <h4>Intelligent Process Automation</h4>
+            <p>RPA, AI, and workflow orchestration layered in the right sequence to reduce manual load and improve process accuracy.</p>
+          </div>
+          <div class="service-card purple">
+            <h4>AI-Native Product Engineering</h4>
+            <p>Products designed, built, and shipped by cross-functional POD teams using the FTR SDLC, from idea to market.</p>
+          </div>
+        </div>
+        <div class="service-card full blue">
+          <h4>AI-Services</h4>
+          <p>Conversational AI, RAG, Generative AI Applications, and Legacy Modernization — built to production-grade standards.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">#<span>SwaaS</span></div>
+    <p class="footer-desc">AI-Native Engineering partner for enterprises, founders, and product companies that cannot afford to build it twice.</p>
+    <div class="footer-links">
+      <a href="service.html">Services</a>
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="contactus.html">Contact Us</a>
+    </div>
+    <div class="footer-bottom">© 2024 SwaaS IT Solutions. All rights reserved.</div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>
+

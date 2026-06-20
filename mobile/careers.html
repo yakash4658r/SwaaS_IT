@@ -1,0 +1,489 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Careers – SwaaS IT Solutions</title>
+  <meta name="description" content="Build What's Next With SwaaS. 200+ professionals across five practices." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Gabarito:wght@400;500;600&family=Manrope:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* ---- HERO ---- */
+    .hero {
+      background: #000;
+      padding: 110px 24px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 80%, rgba(255,100,30,0.12) 0%, transparent 60%);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,133,60,0.4);
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+    .hero-badge .dot { width: 8px; height: 8px; background: #FB650C; border-radius: 50%; }
+    .hero-badge span { color: rgba(255,255,255,0.8); font-size: 13px; font-family: 'Geist', sans-serif; }
+    .hero-badge span b { color: #FF853C; font-weight: 400; }
+
+    .hero h1 {
+      font-size: 32px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: #FF853C; font-weight: 500; }
+
+    .hero p {
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      font-family: 'Geist', sans-serif;
+      line-height: 1.7;
+      max-width: 320px;
+      margin: 0 auto 28px;
+    }
+
+    .hero-btns {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---- TEAM VISUAL ---- */
+    .team-visual {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    .team-orbit {
+      position: relative;
+      width: 220px;
+      height: 220px;
+    }
+    .orbit-center {
+      position: absolute;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      border: 3px solid #FF7032;
+      overflow: hidden;
+      z-index: 10;
+      box-shadow: 0 0 30px rgba(255,112,50,0.4);
+    }
+    .orbit-center img { width: 100%; height: 100%; object-fit: cover; }
+    .orbit-member {
+      position: absolute;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .orbit-member img { width: 100%; height: 100%; object-fit: cover; }
+    .orbit-member.m1 { top: 0; left: 50%; transform: translateX(-50%); }
+    .orbit-member.m2 { bottom: 0; left: 10px; }
+    .orbit-member.m3 { bottom: 0; right: 10px; }
+    .orbit-member.m4 { top: 50%; left: 0; transform: translateY(-50%); }
+    .orbit-member.m5 { top: 50%; right: 0; transform: translateY(-50%); }
+
+    /* code tags around orbit */
+    .code-tag {
+      position: absolute;
+      color: rgba(255,255,255,0.4);
+      font-size: 11px;
+      font-family: monospace;
+    }
+    .code-tag.top { top: -20px; left: 50%; transform: translateX(-50%); }
+
+    /* ---- WHY JOIN ---- */
+    .why-join {
+      background: #000;
+      padding: 50px 24px;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .benefit-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid #222;
+      border-radius: 14px;
+      padding: 18px 14px;
+    }
+    .benefit-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    .benefit-card h4 { color: white; font-size: 13px; font-family: 'Gabarito', sans-serif; margin-bottom: 6px; }
+    .benefit-card p { color: rgba(255,255,255,0.5); font-size: 11px; font-family: 'Geist', sans-serif; line-height: 1.5; }
+
+    /* ---- OPEN ROLES ---- */
+    .roles-section {
+      background: #080808;
+      padding: 50px 24px;
+    }
+    .role-card {
+      background: #111;
+      border: 1px solid #1e1e1e;
+      border-radius: 14px;
+      padding: 18px 16px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .role-card:hover { border-color: #FF7032; }
+    .role-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .role-card h3 { color: white; font-size: 15px; font-family: 'Gabarito', sans-serif; }
+    .role-badge {
+      background: rgba(255,133,60,0.12);
+      color: #FF853C;
+      font-size: 10px;
+      font-family: 'Geist', sans-serif;
+      border-radius: 100px;
+      padding: 3px 10px;
+      white-space: nowrap;
+      margin-left: 8px;
+    }
+    .role-meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .role-meta span {
+      color: rgba(255,255,255,0.4);
+      font-size: 11px;
+      font-family: 'Geist', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .role-card p {
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+      font-family: 'Geist', sans-serif;
+      line-height: 1.5;
+    }
+    .apply-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #FF853C;
+      font-size: 12px;
+      font-family: 'Geist', sans-serif;
+      margin-top: 10px;
+    }
+
+    /* ---- CULTURE ---- */
+    .culture-section {
+      background: #000;
+      padding: 50px 24px;
+    }
+    .culture-list { margin-top: 24px; }
+    .culture-item {
+      display: flex;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .culture-item:last-child { border-bottom: none; }
+    .culture-num {
+      color: rgba(255,133,60,0.5);
+      font-size: 18px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      min-width: 28px;
+      padding-top: 2px;
+    }
+    .culture-text h4 { color: white; font-size: 14px; font-family: 'Gabarito', sans-serif; margin-bottom: 4px; }
+    .culture-text p { color: rgba(255,255,255,0.55); font-size: 12px; font-family: 'Geist', sans-serif; line-height: 1.5; }
+
+    /* ---- CTA BANNER ---- */
+    .cta-banner {
+      background: linear-gradient(135deg, #FF5700 0%, #c94500 100%);
+      padding: 40px 24px;
+      text-align: center;
+    }
+    .cta-banner h3 { color: white; font-size: 20px; font-family: 'Inter', sans-serif; margin-bottom: 10px; font-weight: 500; }
+    .cta-banner p { color: rgba(255,255,255,0.85); font-size: 13px; font-family: 'Geist', sans-serif; margin-bottom: 24px; }
+    .cta-btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: #FF5700;
+      border-radius: 100px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-family: 'Geist', sans-serif;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"># <span>SwaaS</span></a>
+      <div class="nav-right">
+        <a href="contactus.html" class="nav-cta">Contact us</a>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="nav-logo"># <span>SwaaS</span></a>
+        <button class="close-btn" id="closeMenu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="service.html">Services</a>
+        <a href="insights.html">Insights</a>
+        <a href="careers.html">Careers</a>
+        <a href="aboutus.html">About Us</a>
+      </nav>
+      <a href="contactus.html" class="mobile-cta">Contact us</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">
+      <div class="dot"></div>
+      <span>Careers at <b>SwaaS</b></span>
+    </div>
+    <h1>Build What's Next<br><span>With SwaaS</span></h1>
+    <p>At SwaaS, the work is live, the teams are small, and you solve problems from scratch. You'll own your code, your sprint, and your outcome. 200+ professionals across five practices, where ownership is expected and the quality of work is taken seriously.</p>
+    <div class="hero-btns">
+      <a href="#roles" class="btn-primary">Explore Opportunities →</a>
+      <a href="#culture" class="btn-ghost">Life at SwaaS →</a>
+    </div>
+
+    <!-- Team Visual -->
+    <div class="team-visual">
+      <div class="team-orbit">
+        <span class="code-tag top">&lt;/&gt;</span>
+        <div class="orbit-center">
+          <img src="../_assets/v11/67457d7e968340faff69870bbe64f6252cebc9a6.jpg" alt="Team member" onerror="this.style.background='#333';this.removeAttribute('src')" />
+        </div>
+        <div class="orbit-member m1">
+          <img src="../_assets/v11/59d387430505b5866eb260a86f4515f441cd9b05.jpg" alt="Team" onerror="this.style.background='#444';this.removeAttribute('src')" />
+        </div>
+        <div class="orbit-member m2">
+          <img src="../_assets/v11/3a9963548a627fd68afe2eb00cb2914af05f7a79.jpg" alt="Team" onerror="this.style.background='#444';this.removeAttribute('src')" />
+        </div>
+        <div class="orbit-member m3">
+          <img src="../_assets/v11/56c7892fb5ad33131b5d731a7ef6c10aa4dc2c3e.jpg" alt="Team" onerror="this.style.background='#444';this.removeAttribute('src')" />
+        </div>
+        <div class="orbit-member m4">
+          <img src="../_assets/v11/c30c04841bf63930611680969a35bce78c358112.jpg" alt="Team" onerror="this.style.background='#444';this.removeAttribute('src')" />
+        </div>
+        <div class="orbit-member m5">
+          <img src="../_assets/v11/107862054f8af468c8ac3433b0e1fcc45e12d2b4.jpg" alt="Team" onerror="this.style.background='#444';this.removeAttribute('src')" />
+        </div>
+      </div>
+    </div>
+
+    <div class="orange-badge"><span>What Sets Us Apart ↗</span></div>
+    <h2 class="section-title" style="text-align:center">Why Join <span>SwaaS</span></h2>
+  </section>
+
+  <!-- WHY JOIN -->
+  <section class="why-join">
+    <div class="benefits-grid">
+      <div class="benefit-card animate-in">
+        <div class="benefit-icon">🤖</div>
+        <h4>AI-Driven Innovation</h4>
+        <p>Work with cutting-edge AI tools and frameworks on real production problems.</p>
+      </div>
+      <div class="benefit-card animate-in">
+        <div class="benefit-icon">🏆</div>
+        <h4>Ownership Culture</h4>
+        <p>You own your sprint, your code, and your outcome. No micro-management.</p>
+      </div>
+      <div class="benefit-card animate-in">
+        <div class="benefit-icon">🚀</div>
+        <h4>Build at Scale</h4>
+        <p>Work on products used by enterprises across 90+ clients on multiple continents.</p>
+      </div>
+      <div class="benefit-card animate-in">
+        <div class="benefit-icon">📚</div>
+        <h4>Learn Continuously</h4>
+        <p>Access to learning resources, cross-functional PODs, and mentorship.</p>
+      </div>
+      <div class="benefit-card animate-in">
+        <div class="benefit-icon">⚡</div>
+        <h4>Career Acceleration</h4>
+        <p>Fast-track growth in a company that rewards impact, not tenure.</p>
+      </div>
+      <div class="benefit-card animate-in">
+        <div class="benefit-icon">🤝</div>
+        <h4>Flat &amp; Collaborative</h4>
+        <p>Direct access to leadership. Ideas flow from engineers to leadership and back.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN ROLES -->
+  <section class="roles-section" id="roles">
+    <div class="orange-badge"><span>Open Roles ↗</span></div>
+    <h2 class="section-title">Current <span>Opportunities</span></h2>
+
+    <div class="role-card animate-in">
+      <div class="role-top">
+        <h3>Senior AI/ML Engineer</h3>
+        <span class="role-badge">Full-time</span>
+      </div>
+      <div class="role-meta">
+        <span>🏢 AI Services</span>
+        <span>📍 Remote / Chennai</span>
+        <span>💼 4-8 yrs</span>
+      </div>
+      <p>Build production-grade conversational AI, RAG systems, and LLM integrations for enterprise clients.</p>
+      <a href="contactus.html" class="apply-link">Apply Now →</a>
+    </div>
+
+    <div class="role-card animate-in">
+      <div class="role-top">
+        <h3>Full Stack Engineer</h3>
+        <span class="role-badge">Full-time</span>
+      </div>
+      <div class="role-meta">
+        <span>🏢 Product Engineering</span>
+        <span>📍 Chennai</span>
+        <span>💼 2-5 yrs</span>
+      </div>
+      <p>Build client-facing web applications using React, Node.js, and cloud-native backend services.</p>
+      <a href="contactus.html" class="apply-link">Apply Now →</a>
+    </div>
+
+    <div class="role-card animate-in">
+      <div class="role-top">
+        <h3>Data Engineer</h3>
+        <span class="role-badge">Full-time</span>
+      </div>
+      <div class="role-meta">
+        <span>🏢 Data Analytics</span>
+        <span>📍 Remote</span>
+        <span>💼 3-6 yrs</span>
+      </div>
+      <p>Design and build ELT/ETL pipelines, data lakehouses, and real-time analytics infrastructure.</p>
+      <a href="contactus.html" class="apply-link">Apply Now →</a>
+    </div>
+
+    <div class="role-card animate-in">
+      <div class="role-top">
+        <h3>DevOps / Cloud Engineer</h3>
+        <span class="role-badge">Full-time</span>
+      </div>
+      <div class="role-meta">
+        <span>🏢 Infra as a Service</span>
+        <span>📍 Remote / Chennai</span>
+        <span>💼 3-7 yrs</span>
+      </div>
+      <p>Manage multi-cloud infrastructure (AWS, Azure, GCP), CI/CD pipelines, and zero-downtime deployments.</p>
+      <a href="contactus.html" class="apply-link">Apply Now →</a>
+    </div>
+  </section>
+
+  <!-- CULTURE -->
+  <section class="culture-section" id="culture">
+    <div class="orange-badge"><span>Our Culture ↗</span></div>
+    <h2 class="section-title">Life at <span>SwaaS</span></h2>
+
+    <div class="culture-list">
+      <div class="culture-item animate-in">
+        <div class="culture-num">01</div>
+        <div class="culture-text">
+          <h4>Work that matters</h4>
+          <p>Every project has real stakes. Real clients, real production, real impact. No busy work.</p>
+        </div>
+      </div>
+      <div class="culture-item animate-in">
+        <div class="culture-num">02</div>
+        <div class="culture-text">
+          <h4>Direct client access</h4>
+          <p>Engineers talk to clients. No communication layers between the team building and the team using.</p>
+        </div>
+      </div>
+      <div class="culture-item animate-in">
+        <div class="culture-num">03</div>
+        <div class="culture-text">
+          <h4>Timezone-friendly collaboration</h4>
+          <p>Shared sprint rhythms with US, UK, and ANZ teams. Overlap, not just handoffs.</p>
+        </div>
+      </div>
+      <div class="culture-item animate-in">
+        <div class="culture-num">04</div>
+        <div class="culture-text">
+          <h4>Continuous learning budget</h4>
+          <p>Annual learning allowance, certifications, and conference access for every engineer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <h3>Don't see your role?</h3>
+    <p>We're always looking for people who think in systems, ship with discipline, and own their outcomes.</p>
+    <a href="contactus.html" class="cta-btn-white">Send us your profile →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">#<span>SwaaS</span></div>
+    <p class="footer-desc">AI-Native Engineering partner for enterprises, founders, and product companies that cannot afford to build it twice.</p>
+    <div class="footer-links">
+      <a href="service.html">Services</a>
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="contactus.html">Contact Us</a>
+    </div>
+    <div class="footer-bottom">© 2024 SwaaS IT Solutions. All rights reserved.</div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>
+

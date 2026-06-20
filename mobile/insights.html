@@ -1,0 +1,468 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Insights Hub – SwaaS IT Solutions</title>
+  <meta name="description" content="Ideas that move AI-Native. Drawn from live engagements and real production problems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Gabarito:wght@400;500;600&family=Manrope:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* ---- HERO ---- */
+    .hero {
+      background: radial-gradient(ellipse at 50% 40%, #3B1205 0%, #0d0300 50%, #000 100%);
+      padding: 110px 24px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100%; height: 60%;
+      background: radial-gradient(ellipse at 50% 100%, rgba(255,100,30,0.2) 0%, transparent 70%);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,133,60,0.4);
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+    .hero-badge .dot { width: 8px; height: 8px; background: #FB650C; border-radius: 50%; }
+    .hero-badge span { color: rgba(255,255,255,0.8); font-size: 13px; font-family: 'Geist', sans-serif; }
+    .hero-badge span b { color: #FF853C; font-weight: 400; }
+
+    .hero h1 {
+      font-size: 30px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero h1 span { color: #FF853C; font-style: italic; }
+
+    .hero p {
+      color: rgba(255,255,255,0.7);
+      font-size: 13px;
+      font-family: 'Geist', sans-serif;
+      line-height: 1.7;
+      max-width: 320px;
+      margin: 0 auto 28px;
+    }
+
+    /* ---- SEARCH ---- */
+    .search-bar {
+      display: flex;
+      gap: 0;
+      background: #1a1a1a;
+      border-radius: 100px;
+      overflow: hidden;
+      border: 1px solid #333;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
+    .search-bar input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 14px;
+      font-family: 'Geist', sans-serif;
+      padding: 12px 16px 12px 40px;
+    }
+    .search-bar input::placeholder { color: rgba(255,255,255,0.4); }
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255,255,255,0.4);
+    }
+    .search-icon svg { width: 16px; stroke: currentColor; }
+    .search-btn {
+      background: #FF7032;
+      border: none;
+      border-radius: 0 100px 100px 0;
+      padding: 12px 20px;
+      color: white;
+      font-size: 14px;
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ---- WORLD MAP ---- */
+    .world-section {
+      background: #000;
+      padding: 0 24px 40px;
+    }
+    .world-map {
+      width: 100%;
+      height: 180px;
+      background: #0a0a0a;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      border: 1px solid #1a1a1a;
+    }
+    .world-map img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+
+    /* ---- STATS ---- */
+    .stats-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .client-avatars { display: flex; }
+    .client-avatars img {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      border: 1px solid white;
+      margin-left: -6px;
+    }
+    .client-avatars img:first-child { margin-left: 0; }
+    .clients-num {
+      color: white;
+      font-size: 20px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+    }
+    .clients-lbl {
+      color: rgba(255,255,255,0.5);
+      font-size: 9px;
+      font-family: 'Geist', sans-serif;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 8px;
+    }
+    .stat-pill {
+      flex: 1;
+      background: #181818;
+      border-left: 2px solid #FF7032;
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+    .stat-pill .num { color: white; font-size: 18px; font-family: 'Manrope', sans-serif; font-weight: 700; }
+    .stat-pill .lbl { color: rgba(255,255,255,0.5); font-size: 9px; font-family: 'Geist', sans-serif; }
+
+    /* ---- ARTICLES ---- */
+    .articles-section {
+      background: #000;
+      padding: 50px 24px;
+    }
+    .trending-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,133,60,0.12);
+      border: 1px solid rgba(255,133,60,0.3);
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+    .trending-label .dot { width: 6px; height: 6px; background: #FF853C; border-radius: 50%; animation: pulse 2s infinite; }
+    .trending-label span { color: #FF853C; font-size: 12px; font-family: 'Geist', sans-serif; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .article-card {
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 14px;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .article-card:hover { border-color: #FF7032; transform: translateY(-2px); }
+
+    .article-tag {
+      display: inline-block;
+      background: rgba(255,133,60,0.15);
+      color: #FF853C;
+      font-size: 10px;
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      border-radius: 100px;
+      padding: 3px 10px;
+      margin-bottom: 10px;
+    }
+    .article-card h3 {
+      color: white;
+      font-size: 15px;
+      font-family: 'Gabarito', sans-serif;
+      font-weight: 500;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .article-card p {
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+      font-family: 'Geist', sans-serif;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .article-meta .date { color: rgba(255,255,255,0.35); font-size: 11px; font-family: 'Geist', sans-serif; }
+    .read-more {
+      color: #FF853C;
+      font-size: 12px;
+      font-family: 'Geist', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ---- TOPICS SECTION ---- */
+    .topics-section {
+      background: #080808;
+      padding: 50px 24px;
+    }
+    .topics-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .topic-chip {
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 100px;
+      padding: 8px 16px;
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+      font-family: 'Geist', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .topic-chip:hover, .topic-chip.active {
+      background: rgba(255,133,60,0.12);
+      border-color: #FF7032;
+      color: #FF853C;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"># <span>SwaaS</span></a>
+      <div class="nav-right">
+        <a href="contactus.html" class="nav-cta">Contact us</a>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="nav-logo"># <span>SwaaS</span></a>
+        <button class="close-btn" id="closeMenu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="service.html">Services</a>
+        <a href="insights.html">Insights</a>
+        <a href="careers.html">Careers</a>
+        <a href="aboutus.html">About Us</a>
+      </nav>
+      <a href="contactus.html" class="mobile-cta">Contact us</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">
+      <div class="dot"></div>
+      <span><b>Insights</b> Hub</span>
+    </div>
+    <h1>Ideas that move<br><span>AI-Native</span></h1>
+    <p>Drawn from live engagements, late-night builds, and problems that didn't have a clean answer. Everything here was figured out in production, not in a meeting room.</p>
+
+    <!-- Search -->
+    <div class="search-bar" style="position:relative;">
+      <span class="search-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </span>
+      <input type="text" placeholder="Search insights..." id="searchInput" />
+      <button class="search-btn">Search →</button>
+    </div>
+  </section>
+
+  <!-- WORLD + STATS -->
+  <div class="world-section">
+    <div class="world-map">
+      <img src="../_assets/v11/529d13a077d41731bd14e9ca7b2f0da2ea8efb67.svg" alt="World map" onerror="this.parentElement.style.background='#111'" />
+    </div>
+
+    <div class="stats-row">
+      <div class="client-avatars">
+        <img src="../_assets/v11/226049655f3871f3dac264b316138eae1882ff2f5db1.png" alt="flag" onerror="this.style.background='#444';this.removeAttribute('src')" />
+        <img src="../_assets/v11/226049655f3871f3dac264b316138eae1882ff2fbca5.png" alt="flag" onerror="this.style.background='#444';this.removeAttribute('src')" />
+        <img src="../_assets/v11/226049655f3871f3dac264b316138eae1882ff2fc498.png" alt="flag" onerror="this.style.background='#444';this.removeAttribute('src')" />
+      </div>
+      <div>
+        <div class="clients-num">90+</div>
+        <div class="clients-lbl">Clients Across Continents</div>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-pill">
+        <div class="num">125+</div>
+        <div class="lbl">Projects Delivered</div>
+      </div>
+      <div class="stat-pill">
+        <div class="num">200+</div>
+        <div class="lbl">Minds Behind the Work</div>
+      </div>
+      <div class="stat-pill">
+        <div class="num">17+</div>
+        <div class="lbl">Years of Experience</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOPICS -->
+  <section class="topics-section">
+    <h2 class="section-title">Browse by <span>Topic</span></h2>
+    <div class="topics-grid">
+      <div class="topic-chip active">All</div>
+      <div class="topic-chip">AI &amp; ML</div>
+      <div class="topic-chip">Data Engineering</div>
+      <div class="topic-chip">Offshore</div>
+      <div class="topic-chip">Product</div>
+      <div class="topic-chip">Automation</div>
+      <div class="topic-chip">Cloud</div>
+      <div class="topic-chip">Leadership</div>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="articles-section">
+    <div class="trending-label">
+      <div class="dot"></div>
+      <span>Trending</span>
+    </div>
+
+    <div class="article-card animate-in">
+      <div class="article-tag">Offshore Engineering</div>
+      <h3>Why Offshore Rework Is a Structural Problem — Not a People Problem</h3>
+      <p>Most teams blame rework on the wrong things. The root cause is almost never effort or intent — it's structure. Here's how the FTR model eliminates rework by design.</p>
+      <div class="article-meta">
+        <span class="date">Jun 2024</span>
+        <span class="read-more">Read more →</span>
+      </div>
+    </div>
+
+    <div class="article-card animate-in">
+      <div class="article-tag">Process Automation</div>
+      <h3>RPA to IPA: Why Sequence Matters</h3>
+      <p>Jumping straight to AI-powered automation without fixing the underlying process is the fastest way to automate a broken system. The sequence from RPA to IPA is deliberate.</p>
+      <div class="article-meta">
+        <span class="date">May 2024</span>
+        <span class="read-more">Read more →</span>
+      </div>
+    </div>
+
+    <div class="article-card animate-in">
+      <div class="article-tag">AI-Native Engineering</div>
+      <h3>What "AI-Native" Actually Means in a Software Delivery Team</h3>
+      <p>AI-native is not about using AI tools. It's about building teams and processes where AI is a first-class participant in every stage of the SDLC.</p>
+      <div class="article-meta">
+        <span class="date">Apr 2024</span>
+        <span class="read-more">Read more →</span>
+      </div>
+    </div>
+
+    <div class="article-card animate-in">
+      <div class="article-tag">Data Engineering</div>
+      <h3>Data Readiness Is Not a Pre-Project Activity</h3>
+      <p>Most AI projects fail not because of model quality but because the data was never ready. Data readiness is a continuous practice — not a one-time checkpoint.</p>
+      <div class="article-meta">
+        <span class="date">Mar 2024</span>
+        <span class="read-more">Read more →</span>
+      </div>
+    </div>
+
+    <div class="article-card animate-in">
+      <div class="article-tag">Product Engineering</div>
+      <h3>The 12-Week MVP: Engineering at Speed Without Breaking Quality</h3>
+      <p>Speed without discipline creates debt. Discipline without speed creates irrelevance. The 12-week MVP model forces both — here's how it works in practice.</p>
+      <div class="article-meta">
+        <span class="date">Feb 2024</span>
+        <span class="read-more">Read more →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">#<span>SwaaS</span></div>
+    <p class="footer-desc">AI-Native Engineering partner for enterprises, founders, and product companies that cannot afford to build it twice.</p>
+    <div class="footer-links">
+      <a href="service.html">Services</a>
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="contactus.html">Contact Us</a>
+    </div>
+    <div class="footer-bottom">© 2024 SwaaS IT Solutions. All rights reserved.</div>
+  </footer>
+
+  <script src="shared.js"></script>
+  <script>
+    // Topic filter interaction
+    document.querySelectorAll('.topic-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('.topic-chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+      });
+    });
+
+    // Search
+    document.getElementById('searchInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const q = e.target.value.trim();
+        if (q) alert('Search: ' + q + '\n(Backend search integration needed)');
+      }
+    });
+  </script>
+</body>
+</html>
+

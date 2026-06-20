@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Services – SwaaS IT Solutions</title>
+  <meta name="description" content="AI-Native Engineering services – five capabilities engineered to work as one." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Gabarito:wght@400;500;600&family=Manrope:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* ---- HERO ---- */
+    .hero {
+      background: radial-gradient(ellipse at 50% 60%, #3B1205 0%, #0d0300 60%, #000 100%);
+      padding: 110px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 280px; height: 280px;
+      background: rgba(255,100,30,0.35);
+      border-radius: 50%;
+      filter: blur(60px);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,133,60,0.4);
+      border-radius: 100px;
+      padding: 6px 14px;
+      margin-bottom: 20px;
+    }
+    .hero-badge .dot { width: 8px; height: 8px; background: #FB650C; border-radius: 50%; }
+    .hero-badge span { color: rgba(255,255,255,0.8); font-size: 13px; font-family: 'Geist', sans-serif; }
+
+    .hero h1 {
+      font-size: 34px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+    .hero h1 span { color: #FF853C; font-weight: 500; }
+
+    .hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      font-family: 'Geist', sans-serif;
+      line-height: 1.7;
+      max-width: 320px;
+      margin: 0 auto 28px;
+    }
+    .hero-btns {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---- CAPABILITIES ---- */
+    .capabilities {
+      background: #000;
+      padding: 50px 24px;
+    }
+    .cap-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FF853C;
+      border-radius: 50px;
+      padding: 8px 16px;
+      margin-bottom: 14px;
+    }
+    .cap-label span { color: white; font-size: 12px; font-family: 'Geist', sans-serif; }
+
+    .cap-title {
+      font-size: 26px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      color: white;
+      margin-bottom: 8px;
+    }
+    .cap-title span { color: #FF853C; }
+
+    .cap-desc-box {
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 14px 16px;
+      color: white;
+      font-size: 12px;
+      font-family: 'Geist', sans-serif;
+      font-weight: 500;
+      text-align: center;
+      margin: 16px 0 30px;
+    }
+
+    .cap-card {
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cap-card:last-child { border-bottom: none; }
+
+    .cap-num {
+      width: 36px; height: 36px;
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FF853C;
+      font-size: 13px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .cap-info h3 {
+      color: white;
+      font-size: 16px;
+      font-family: 'Gabarito', sans-serif;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .cap-info p {
+      color: rgba(255,255,255,0.6);
+      font-size: 12px;
+      font-family: 'Geist', sans-serif;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .cap-tag {
+      display: inline-block;
+      border: 1px solid rgba(255,133,60,0.5);
+      border-radius: 100px;
+      padding: 4px 12px;
+      color: #FF853C;
+      font-size: 11px;
+      font-family: 'Geist', sans-serif;
+    }
+
+    /* ---- WHY SWAAS ---- */
+    .why-section {
+      background: linear-gradient(180deg, #0d0300 0%, #000 100%);
+      padding: 50px 24px;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid #222;
+      border-radius: 14px;
+      padding: 18px 14px;
+    }
+    .why-card .icon {
+      width: 36px; height: 36px;
+      background: rgba(255,133,60,0.12);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .why-card .icon svg { width: 18px; stroke: #FF853C; }
+    .why-card h4 { color: white; font-size: 13px; font-family: 'Gabarito', sans-serif; margin-bottom: 6px; }
+    .why-card p { color: rgba(255,255,255,0.55); font-size: 11px; font-family: 'Geist', sans-serif; line-height: 1.5; }
+
+    /* ---- ARJUN PIPELINE ---- */
+    .pipeline {
+      background: #080808;
+      padding: 50px 24px;
+    }
+    .pipeline-steps {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .pipeline-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid #1a1a1a;
+      position: relative;
+    }
+    .pipeline-step:last-child { border-bottom: none; }
+    .step-dot {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, #FF853C, #FF4D00);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: 'Manrope', sans-serif;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .step-text h4 { color: white; font-size: 14px; font-family: 'Gabarito', sans-serif; margin-bottom: 4px; }
+    .step-text p { color: rgba(255,255,255,0.55); font-size: 12px; font-family: 'Geist', sans-serif; line-height: 1.5; }
+
+    /* ---- CTA STRIP ---- */
+    .cta-strip {
+      background: linear-gradient(90deg, #FF5700 0%, #c94500 100%);
+      padding: 30px 24px;
+      text-align: center;
+    }
+    .cta-strip h3 { color: white; font-size: 18px; font-family: 'Inter', sans-serif; margin-bottom: 10px; }
+    .cta-strip p { color: rgba(255,255,255,0.85); font-size: 13px; font-family: 'Geist', sans-serif; margin-bottom: 20px; }
+    .cta-btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: #FF5700;
+      border-radius: 100px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-family: 'Geist', sans-serif;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"># <span>SwaaS</span></a>
+      <div class="nav-right">
+        <a href="contactus.html" class="nav-cta">Contact us</a>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="nav-logo"># <span>SwaaS</span></a>
+        <button class="close-btn" id="closeMenu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="mobile-nav-links">
+        <a href="service.html">Services</a>
+        <a href="insights.html">Insights</a>
+        <a href="careers.html">Careers</a>
+        <a href="aboutus.html">About Us</a>
+      </nav>
+      <a href="contactus.html" class="mobile-cta">Contact us</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">
+      <div class="dot"></div>
+      <span>Services</span>
+    </div>
+    <h1><span>AI-Native</span><br>Engineering</h1>
+    <p>An AI-Native engineering partner for enterprises, founders, and product companies that cannot afford to build it twice. From the first line of code to a market-ready product, SwaaS balances Technology, People, Process, Time, and Cost so every build lands right the first time.</p>
+    <div class="hero-btns">
+      <a href="contactus.html" class="btn-primary">Talk to us →</a>
+      <a href="#capabilities" class="btn-ghost">Explore Capabilities →</a>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section class="capabilities" id="capabilities">
+    <div class="cap-label"><span>Capabilities</span></div>
+    <h2 class="cap-title">Engineering <span>Ecosystem</span></h2>
+    <div class="cap-desc-box">Five capabilities, engineered to work as one.</div>
+
+    <div class="cap-card animate-in">
+      <div class="cap-num">01</div>
+      <div class="cap-info">
+        <h3>AI Services</h3>
+        <p>Conversational AI, RAG, Generative AI Applications, and Legacy Modernization — built to production-grade standards with responsible AI guardrails.</p>
+        <span class="cap-tag">AI-Native</span>
+      </div>
+    </div>
+
+    <div class="cap-card animate-in">
+      <div class="cap-num">02</div>
+      <div class="cap-info">
+        <h3>Offshore Product Engineering</h3>
+        <p>Cross-functional POD teams using the FTR SDLC. From idea to market — built right the first time with zero rework culture.</p>
+        <span class="cap-tag">Product Build</span>
+      </div>
+    </div>
+
+    <div class="cap-card animate-in">
+      <div class="cap-num">03</div>
+      <div class="cap-info">
+        <h3>Data Analytics</h3>
+        <p>End-to-end data pipelines, unified platforms, and AI-powered insights that drive decisions, not just dashboards.</p>
+        <span class="cap-tag">Data &amp; Analytics</span>
+      </div>
+    </div>
+
+    <div class="cap-card animate-in">
+      <div class="cap-num">04</div>
+      <div class="cap-info">
+        <h3>Infra as a Service</h3>
+        <p>Cloud infrastructure, CI/CD pipelines, and DevOps practices built for scale, security, and zero-downtime delivery.</p>
+        <span class="cap-tag">Cloud &amp; DevOps</span>
+      </div>
+    </div>
+
+    <div class="cap-card animate-in">
+      <div class="cap-num">05</div>
+      <div class="cap-info">
+        <h3>Intelligent Process Automation</h3>
+        <p>RPA, AI, and workflow orchestration layered in the right sequence to reduce manual load and improve process accuracy.</p>
+        <span class="cap-tag">IPA</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SWAAS -->
+  <section class="why-section">
+    <div class="orange-badge"><span>Why SwaaS ↗</span></div>
+    <h2 class="section-title">What Sets Us <span>Apart</span></h2>
+    <p class="section-subtitle">Proven frameworks and AI-driven delivery, built on 17 years of domain expertise. Every engagement is structured for measurable outcomes.</p>
+    <div class="why-grid">
+      <div class="why-card animate-in">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="#FF853C"/></svg>
+        </div>
+        <h4>12-Week MVP Model</h4>
+        <p>Concept to production-ready product in 12 weeks. Zero-bench culture.</p>
+      </div>
+      <div class="why-card animate-in">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="#FF853C"/></svg>
+        </div>
+        <h4>Vertical Expertise</h4>
+        <p>25+ years of domain experience across pharma, finance, and global delivery.</p>
+      </div>
+      <div class="why-card animate-in">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" stroke="#FF853C"/></svg>
+        </div>
+        <h4>Multi-Cloud Mastery</h4>
+        <p>AWS, Azure, and GCP with zero-downtime migrations and IaC.</p>
+      </div>
+      <div class="why-card animate-in">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke="#FF853C"/></svg>
+        </div>
+        <h4>Pragya Platform</h4>
+        <p>Enterprise LLM integration with omnichannel conversational copilots.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARJUN PIPELINE -->
+  <section class="pipeline">
+    <div class="orange-badge"><span>Our Process ↗</span></div>
+    <h2 class="section-title">AI-Native FTR <span>Pipeline (Arjun)</span></h2>
+    <p class="section-subtitle">Every engagement is governed by our AI-Native First Time Right pipeline — from requirements to continuous improvement.</p>
+
+    <div class="pipeline-steps">
+      <div class="pipeline-step animate-in">
+        <div class="step-dot">1</div>
+        <div class="step-text">
+          <h4>Requirements</h4>
+          <p>AI-assisted requirement locking to eliminate ambiguity before a single line of code is written.</p>
+        </div>
+      </div>
+      <div class="pipeline-step animate-in">
+        <div class="step-dot">2</div>
+        <div class="step-text">
+          <h4>Design</h4>
+          <p>Architecture and UX validated against the product roadmap — not a ticket queue.</p>
+        </div>
+      </div>
+      <div class="pipeline-step animate-in">
+        <div class="step-dot">3</div>
+        <div class="step-text">
+          <h4>Sprint Planning</h4>
+          <p>Cross-functional POD alignment with client roadmap priorities front and center.</p>
+        </div>
+      </div>
+      <div class="pipeline-step animate-in">
+        <div class="step-dot">4</div>
+        <div class="step-text">
+          <h4>Development</h4>
+          <p>AI-enforced coding standards with real-time spec drift detection.</p>
+        </div>
+      </div>
+      <div class="pipeline-step animate-in">
+        <div class="step-dot">5</div>
+        <div class="step-text">
+          <h4>Testing</h4>
+          <p>Automated and human-gated quality checks before every merge.</p>
+        </div>
+      </div>
+      <div class="pipeline-step animate-in">
+        <div class="step-dot">6</div>
+        <div class="step-text">
+          <h4>Review &amp; Continuous Improvement</h4>
+          <p>Every sprint closes with a retrospective that feeds the next cycle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <h3>Ready to build right the first time?</h3>
+    <p>Talk to our engineering team and get a scoped engagement in 48 hours.</p>
+    <a href="contactus.html" class="cta-btn-white">Start the conversation →</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">#<span>SwaaS</span></div>
+    <p class="footer-desc">AI-Native Engineering partner for enterprises, founders, and product companies that cannot afford to build it twice.</p>
+    <div class="footer-links">
+      <a href="service.html">Services</a>
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="contactus.html">Contact Us</a>
+    </div>
+    <div class="footer-bottom">© 2024 SwaaS IT Solutions. All rights reserved.</div>
+  </footer>
+
+  <script src="shared.js"></script>
+</body>
+</html>
+
